@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   }
 
   getSeats() {
-    this.http.get<any[][]>('http://localhost:3000/seats').subscribe(
+    this.http.get<any[][]>('http://localhost:5000/seats').subscribe(
       (response) => {
         this.seats = response;
       },
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit{
     }
     else{
       this.http
-      .post<any>('http://localhost:3000/reserve', { numOfSeats: this.numOfSeats })
+      .post<any>('http://localhost:5000/reserve', { numOfSeats: this.numOfSeats })
       .subscribe(
         (response) => {
           this.reservedSeats = response.seats;
@@ -51,5 +51,5 @@ export class AppComponent implements OnInit{
       );
     }
   }
-  
+
 }
